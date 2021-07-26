@@ -1,0 +1,70 @@
+\begin{figure}
+    \centering
+    %%%  diagrama \\beginVimFold
+    \begin{tikzpicture}[
+            scale=1,
+            every node/.style={midway, left, scale=0.8}
+        ]
+        \matrix [matrix of math nodes, column sep=1em, row sep=2.5em]
+        {
+            |(0e)| \cdots & |(ee)| \vdots & |(CD)| \vdots      & |(aa)| \vdots &
+            |(DD)| \vdots & |(cc)| \vdots & |(EE)| \vdots      & |(gg)| \vdots &
+            |(00e)| \cdots \\ 
+            %
+            |(0d)| \cdots       &               & |(C2)| H_2(X_a)    &               &
+            |(D2)| H_2(X_b)     &               & |(E2)| H_2(X_c)    &               & 
+            |(00d)| \cdots \\ 
+            %
+            |(0c)| \cdots       &               & |(C1)| H_1(X_a)     &                &
+            |(D1)| H_1(X_b)     &               & |(E1)| H_1(X_c)     &                &
+            |(00c)| \cdots \\ 
+            %
+            |(0b)| \cdots       &               & |(C0)| H_0(X_a)    &               &
+            |(D0)| H_0(X_b)     &               & |(E0)| H_0(X_c)    &               & 
+            |(00b)| \cdots \\ 
+            %
+            |(0a)| \cdots       &               & |(0C)| (0)         &               &
+            |(0D)| (0)          &               & |(0E)| (0)         &               &
+            |(00a)| \cdots \\[-1cm]
+            %
+                  \cdots        &   \leq        & a                  & \leq          & 
+                  b             & \leq          & c                  & \leq          & 
+                  \cdots\\
+        };
+        %\tikzstyle{every node} = [midway, left]
+
+        \draw[thick, <-] (0C) -- node {$\bm{\partial}_0 $}    (C0);
+        \draw[thick, <-] (C0) -- node {$\bm{\partial}_1$}     (C1);
+        \draw[thick, <-] (C1) -- node {$\bm{\partial}_2$}     (C2);
+        \draw[thick, <-] (C2) -- node {$\bm{\partial}_3$}     (CD);
+
+        \draw[thick, <-] (0D) -- node {$\bm{\partial}_0 $} (D0);
+        \draw[thick, <-] (D0) -- node {$\bm{\partial}_1$} (D1);
+        \draw[thick, <-] (D1) -- node {$\bm{\partial}_2$} (D2);
+        \draw[thick, <-] (D2) -- node {$\bm{\partial}_3$}(DD);
+
+        \draw[thick, <-] (0E) -- node {$\bm{\partial}_0 $} (E0);
+        \draw[thick, <-] (E0) -- node {$\bm{\partial}_1$} (E1);
+        \draw[thick, <-] (E1) -- node {$\bm{\partial}_2$} (E2);
+        \draw[thick, <-] (E2) -- node {$\bm{\partial}_3$}(EE);
+
+        %\draw[thick, ->] (0C) -- (0D) node[left] {$f_0$};
+
+        \draw[thick, ->] (0b) --  (0b -| C0.west)   ;
+        \draw[thick, ->] (0c) --  (0c -| C1.west)   ;
+        \draw[thick, ->] (0d) --  (0d -| C2.west)   ;
+
+        \draw[thick, ->] (C0) --  (C0  -| D0.west) node[above]  {$i^{a,b}_{\ast, 0}$};
+        \draw[thick, ->] (C1) --  (C1  -| D1.west) node[above]  {$i^{a,b}_{\ast, 1}$};
+        \draw[thick, ->] (C2) --  (C2  -| D2.west) node[above]  {$i^{a,b}_{\ast, 2}$};
+
+        \draw[thick, ->] (D0) --  (D0  -| E0.west) node[above]   {$i^{b,c}_{\ast, 0}$};
+        \draw[thick, ->] (D1) --  (D1  -| E1.west) node[above]   {$i^{b,c}_{\ast, 1}$};
+        \draw[thick, ->] (D2) --  (D2  -| E2.west) node[above]   {$i^{b,c}_{\ast, 2}$};
+
+        \draw[thick, ->] (E0) --  (E0  -| 00b.west)   ;
+        \draw[thick, ->] (E1) --  (E1  -| 00c.west)   ;
+        \draw[thick, ->] (E2) --  (E2  -| 00d.west)   ;
+    \end{tikzpicture}
+    %%% \\endVimFold
+\end{figure}

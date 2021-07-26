@@ -1,0 +1,61 @@
+% vim: set ts=4 expandtab sw=4: 
+\documentclass[12pt, margin=10pt]{standalone}
+
+%|--- Packages and Configs {{{1
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}    
+\usepackage[brazil]{babel}
+
+\usepackage{tikz}
+\usetikzlibrary{snakes} %% produces curly arrows on tikz
+\usetikzlibrary{matrix} %% for commutative diagrams
+\usetikzlibrary{arrows}
+% 1}}}
+
+%|--- Begin Document {{{1
+\begin{document}
+    \begin{tikzpicture}
+        \begin{scope}[shift={(4,0)}]
+            \draw[thick] (-0.1, 1.1) rectangle (6.1, -4.1);
+            \draw[thick] (0,0) rectangle  (6,1)  node[midway] {tweet ID};
+            \draw[thick] (0,0) rectangle  (6,-1) node[midway] {tipo da mensagem = Mensagem};
+            \draw[thick] (0,-1) rectangle (6,-2) node[midway] {autor ID};
+            \draw[thick] (0,-2) rectangle (6,-3) node[midway] {mensagem};
+            \draw[thick] (0,-3) rectangle (6,-4) node[midway] {horário da publicação};
+        \end{scope}
+
+        \begin{scope}[shift={(-3,-10)}]
+            \draw[thick] (-0.1, 1.1) rectangle (6.1, -4.1);
+            \draw[thick] (0,0) rectangle  (6,1)  node[midway] {tweet ID};
+            \draw[thick] (0,0) rectangle  (6,-1) node[midway] {tipo da mensagem = Resposta};
+            \draw[thick] (0,-1) rectangle (6,-2) node[midway] {autor ID};
+            \draw[thick] (0,-2) rectangle (6,-3) node[midway] {mensagem};
+            \draw[thick] (0,-3) rectangle (6,-4) node[midway] {horário da publicação};
+        \end{scope}
+
+        \begin{scope}[shift={(+4,-10)}]
+            \draw[thick] (-0.1, 1.1) rectangle (6.1, -4.1);
+            \draw[thick] (0,0) rectangle  (6,1)  node[midway] {tweet ID};
+            \draw[thick] (0,0) rectangle  (6,-1) node[midway] {tipo da mensagem = RT};
+            \draw[thick] (0,-1) rectangle (6,-2) node[midway] {autor ID};
+            \draw[thick] (0,-2) rectangle (6,-3) node[midway] {mensagem};
+            \draw[thick] (0,-3) rectangle (6,-4) node[midway] {horário da publicação};
+        \end{scope}
+
+        \begin{scope}[shift={(+11,-10)}]
+            \draw[thick] (-0.1, 1.1) rectangle (6.1, -4.1);
+            \draw[thick] (0,0) rectangle  (6,1)  node[midway] {tweet ID};
+            \draw[thick] (0,0) rectangle  (6,-1) node[midway] {tipo da mensagem = Quote};
+            \draw[thick] (0,-1) rectangle (6,-2) node[midway] {autor ID};
+            \draw[thick] (0,-2) rectangle (6,-3) node[midway] {mensagem};
+            \draw[thick] (0,-3) rectangle (6,-4) node[midway] {horário da publicação};
+        \end{scope}
+
+        \draw[-, very thick] (7,-4.1) -- (0, -8.9);
+        \draw[-, very thick] (7,-4.1) -- (7, -8.9);
+        \draw[-, very thick] (7,-4.1) -- (14, -8.9);
+    \end{tikzpicture}
+\end{document}
+% 1}}}
+
+
