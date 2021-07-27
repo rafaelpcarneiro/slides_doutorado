@@ -77,10 +77,33 @@
 %%% 1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%% Theorems %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% {{{1
+\theoremstyle{remark}
+\newtheorem{exemplo}{Exemplo}
+
+\theoremstyle{definition}
+\newtheorem{observacao}{Observação}
+\newtheorem{definicao}{Definição}
+\newtheorem*{notacao}{Notação}
+
+\theoremstyle{plain}
+\newtheorem{lema}{Lema}
+\newtheorem{teorema}{Teorema}
+\newtheorem{proposicao}{Proposição}
+%%% 1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %|--- Begin Document {{{1
 \begin{document}
 
 %%%%%%%% INTRO
+    % frame 0 {{{2 
+    \begin{frame}
+        \frametitle{}
+        \maketitle
+        \tableofcontents
+    \end{frame}
+    % END frame 2}}}
 
     % frame 1 {{{2 
     \begin{frame}
@@ -799,10 +822,17 @@
                 \end{equation*}
 
             \item
-                $\{X_r\}_{r \in \R_{\geq 0}}$ será chamado de filtração
+                Temos que
+                \begin{center}
+                    $\{X_r\}_{r \in \R_{\geq 0}}$ será chamada de filtração\\[0.5cm]
+                \end{center}
 
             \item 
-                Temos o diagrama dos grupos de homologia para cada $X_r$:
+                Da propriedade 
+                $X_0 \subseteq X_1 \subseteq X_2 \subseteq \cdots$
+
+            \item 
+                A filtração nos garante o seguinte diagrama comutativo
         \end{itemize}
         
     \end{frame}
@@ -813,6 +843,386 @@
         \frametitle{O que é a Homologia Persistente}
         \framesubtitle{Finalmente, a Homologia Persistente}
         \subfile{pics/diagrama_hom_persistente.tex}
+    \end{frame}
+    % END frame 2}}}
+
+    % frame 13 {{{2 
+    \begin{frame}
+        \frametitle{O que é a Homologia Persistente}
+        \framesubtitle{Finalmente, a Homologia Persistente}
+
+        \begin{itemize}
+            \item 
+                Considerando cada grupo de homologia um $\mathbb{K}$-espaço
+                vetorial
+        \end{itemize}
+
+                \begin{definicao}
+                    A \emph{Homologia Persistente} de uma filtração
+                    $\mathcal{F} = (X_r)_{r\in \R_{\geq 0}}$ é nada mais
+                    que a sequência de \emph{módulos de persistência}
+                    $H_p(\mathcal{F})$, com $p \in \N \cup \{0\}$
+                \end{definicao}
+
+                sendo que
+                \begin{definicao}
+                    Um \emph{módulo de persistência} $H_p(\mathcal{F})$,
+                    é a tupla
+                    \begin{equation*}
+                        H_p(\mathcal{F}) 
+                        =
+                        \big(
+                            H_p(X_r),
+                            (\iota_{\ast,p}^{r,r'}: H_p(X_r) \to H_p(X_{r'})
+                        \big)_{r,r'\in \R_{\geq 0}, r \leq r'}.
+                    \end{equation*}
+                \end{definicao}
+
+    \end{frame}
+    % END frame 2}}}
+
+    % frame 14 {{{2 
+    \begin{frame}
+        \frametitle{O que é a Homologia Persistente}
+        \framesubtitle{Finalmente, a Homologia Persistente}
+
+        \begin{itemize}
+            \item
+                Seja $H_p(\mathcal{F})$ um módulo de persistência de dimensão $p$\\[0.5cm]
+
+            \item
+                E $\mathcal{F} = \{X_r\}_{r \in \R_{\geq 0}}$ uma filtração de um 
+                conjunto finito $X$\\[0.5cm]
+
+            \item
+                Então $H_p(\mathcal{F})$ pode ser visto como o multiset
+                \begin{equation*}
+                    \{ (b, d); b \leq d \in \R_{\geq 0} \} \subseteq \R^2
+                \end{equation*}\\[0.5cm]
+
+            \item
+                onde $(b,d) \in \R^2$ representa 
+                \begin{itemize}
+                    \item
+                        $b \to$ o instante do surgimento de um \textit{ciclo} em $X_b$
+                    \item
+                        $d \to$ o instante em que o \textit{ciclo} se torna
+                                um \textit{bordo} em $X_d$
+
+                \end{itemize}
+
+
+
+        \end{itemize}
+    \end{frame}
+    % END frame 2}}}
+
+    % frame 15 {{{2 
+    \begin{frame}
+        \frametitle{O que é a Homologia Persistente}
+        \framesubtitle{Um exemplo}
+        Consideremos o grafo não orientado
+
+        \begin{figure}
+            \begin{tikzpicture}[scale=2]
+               \coordinate (a) at (0:1);
+               \coordinate (b) at (72:1);
+               \coordinate (c) at (144:1);
+               \coordinate (d) at (216:1);
+               \coordinate (e) at (288:1);
+
+               \draw (0,0) circle (1cm); 
+               \node[draw, circle, fill=white] at (a) {$0$};
+               \node[draw, circle, fill=white] at (b) {$1$};
+               \node[draw, circle, fill=white] at (c) {$2$};
+               \node[draw, circle, fill=white] at (d) {$3$};
+               \node[draw, circle, fill=white] at (e) {$4$};
+            \end{tikzpicture}
+        \end{figure}
+
+        Munido da métrica do menor caminho entre vértices
+    \end{frame}
+    % END frame 2}}}
+
+    % frame 16 {{{2 
+    \begin{frame}
+        \frametitle{O que é a Homologia Persistente}
+        \framesubtitle{Um exemplo}
+        O qual admite a filtração
+        \begin{figure}[h]
+            \centering
+            \begin{tikzpicture}[scale=1.2]
+
+                \draw[thick, |-|, red]
+                    (0,-2) node[above] {$0$} -- 
+                    (3.5,-2) node[above] {$1$};
+
+                \draw[thick, |-|, red]
+                    (3.5,-2) --
+                    (7.3,-2) node[above] {$2$};
+
+                \draw[thick, ->, red]
+                    (7,-2) -- (8.5,-2) node[below, right] {$t$};
+
+               \begin{scope}
+                   \coordinate (a) at (0:1);
+                   \coordinate (b) at (72:1);
+                   \coordinate (c) at (144:1);
+                   \coordinate (d) at (216:1);
+                   \coordinate (e) at (288:1);
+
+                   \node[draw, circle, fill=white] at (a) {$0$};
+                   \node[draw, circle, fill=white] at (b) {$1$};
+                   \node[draw, circle, fill=white] at (c) {$2$};
+                   \node[draw, circle, fill=white] at (d) {$3$};
+                   \node[draw, circle, fill=white] at (e) {$4$};
+               \end{scope}
+
+                \begin{scope}[scale=1.2, shift={(3,0)}]
+                   \coordinate (a) at (0:1);
+                   \coordinate (b) at (72:1);
+                   \coordinate (c) at (144:1);
+                   \coordinate (d) at (216:1);
+                   \coordinate (e) at (288:1);
+                   %array([  0.,  72., 144., 216., 288., 360.])
+
+                   \draw (0,0) circle (1cm); 
+                   \node[draw, circle, fill=white] at (a) {$0$};
+                   \node[draw, circle, fill=white] at (b) {$1$};
+                   \node[draw, circle, fill=white] at (c) {$2$};
+                   \node[draw, circle, fill=white] at (d) {$3$};
+                   \node[draw, circle, fill=white] at (e) {$4$};
+                \end{scope}
+
+                \begin{scope}[scale=1.2, shift={(6,0)}]
+                   \coordinate (a) at (0:1);
+                   \coordinate (b) at (72:1);
+                   \coordinate (c) at (144:1);
+                   \coordinate (d) at (216:1);
+                   \coordinate (e) at (288:1);
+
+                   \draw[fill=blue, opacity=0.2, color=black] (0,0) circle (1cm); 
+                   \draw[color=black] (0,0) circle (1cm); 
+
+                   \draw[-] (a) -- (c);
+                   \draw[-] (a) -- (d);
+                   \draw[-] (b) -- (d);
+                   \draw[-] (b) -- (e);
+                   \draw[-] (c) -- (e);
+
+                   \node[draw, circle, fill=white] at (a) {$0$};
+                   \node[draw, circle, fill=white] at (b) {$1$};
+                   \node[draw, circle, fill=white] at (c) {$2$};
+                   \node[draw, circle, fill=white] at (d) {$3$};
+                   \node[draw, circle, fill=white] at (e) {$4$};
+
+                \end{scope}
+            \end{tikzpicture}
+        \end{figure}
+    \end{frame}
+    % END frame 2}}}
+
+    % frame 17 {{{2 
+    \begin{frame}
+        \frametitle{O que é a Homologia Persistente}
+        \framesubtitle{Um exemplo}
+        \begin{itemize}
+            \item
+                E os seguintes módulos de persistência
+                \[
+                    \begin{tikzpicture}[scale=2]
+                        \begin{scope}
+                            \draw[->, very thick] (-0.3,0) -- (4.1,0) node[right, below]
+                                {$\R_{\geq 0}$};
+                            \node[left] at (-0.5,0) {$H_0(\mathcal{F})$};
+                            \node[left] at (-0.4,0) {:};
+
+                            \node[above] at (0,0.1) {$\R^5$};
+                            \node[above] at (1,0.1) {$\R$};
+                            \node[above] at (2,0.1) {$\R$};
+                            \node[above] at (3,0.1) {$\R$};
+                            \node[above] at (3.5,0.14) {$\cdots$};
+                            \node[above] at (3.5,-0.2) {$\cdots$};
+                            
+                            \draw[-, thick] (0,0.1) --  (0,-0.1) node[below] {$0$}; 
+                            \draw[-, thick] (1,0.1) --  (1,-0.1) node[below] {$1$}; 
+                            \draw[-, thick] (2,0.1) --  (2,-0.1) node[below] {$2$}; 
+                            \draw[-, thick] (3,0.1) --  (3,-0.1) node[below] {$3$}; 
+
+                            \draw[ |->, thick] (0.1, 0.2) -- (0.9, 0.2) node[midway, above]
+                                {$i_{\ast, 0}^{0,1}$};
+                            \draw[ |->, thick] (1.1, 0.2) -- (1.9, 0.2) node[midway, above]
+                                {$i_{\ast, 0}^{1,2}$};
+                            \draw[ |->, thick] (2.1, 0.2) -- (2.9, 0.2) node[midway, above]
+                                {$i_{\ast, 0}^{2,3}$};
+                        \end{scope}
+                        \begin{scope}[shift={(0,-1)}]
+                            \draw[->, very thick] (-0.3,0) -- (4.1,0) node[right, below]
+                                {$\R_{\geq 0},$};
+                            \node[left] at (-0.5,0) {$H_1(\mathcal{F})$};
+                            \node[left] at (-0.4,0) {:};
+
+                            \node[above] at (0,0.1) {$(0)$};
+                            \node[above] at (1,0.1) {$\R$};
+                            \node[above] at (2,0.1) {$(0)$};
+                            \node[above] at (3,0.1) {$(0)$};
+                            \node[above] at (3.5,0.14) {$\cdots$};
+                            \node[above] at (3.5,-0.2) {$\cdots$};
+                            
+                            \draw[-, thick] (0,0.1) --  (0,-0.1) node[below] {$0$}; 
+                            \draw[-, thick] (1,0.1) --  (1,-0.1) node[below] {$1$}; 
+                            \draw[-, thick] (2,0.1) --  (2,-0.1) node[below] {$2$}; 
+                            \draw[-, thick] (3,0.1) --  (3,-0.1) node[below] {$3$}; 
+
+                            \draw[ |->, thick] (0.1, 0.2) -- (0.9, 0.2) node[midway, above]
+                                {$i_{\ast, 1}^{0,1}$};
+                            \draw[ |->, thick] (1.1, 0.2) -- (1.9, 0.2) node[midway, above]
+                                {$i_{\ast, 1}^{1,2}$};
+                            \draw[ |->, thick] (2.1, 0.2) -- (2.9, 0.2) node[midway, above]
+                                {$i_{\ast, 1}^{2,3}$};
+                        \end{scope}
+                    \end{tikzpicture}
+                \]
+        \end{itemize}
+    \end{frame}
+    % END frame 2}}}
+
+    % frame 18 {{{2 
+    \begin{frame}
+        \frametitle{O que é a Homologia Persistente}
+        \framesubtitle{Um exemplo}
+
+        \begin{itemize}
+            \item A homologia persistente desta filtração pode ser vista 
+                pelo gráfico de nascimento e morte de ciclos
+
+            \begin{figure}[h]
+                \centering
+                \begin{tikzpicture}[scale=0.8]
+                    \begin{axis}[
+                        xmin = -.5, xmax = 3,
+                        ymin = -0.5,  ymax = 4.5,
+                        %xtick distance = .50,
+                        yticklabels = {-.5, 0, 0.5, 1, 1.5, 2, 2.5, 3, $\vdots$, $\infty$},
+                        ytick = {-0.5, 0, ..., 4},
+                        xlabel=Nascimento,
+                        ylabel = Morte,
+                        %legend style = {at = {(0.65,1)}},
+                        legend pos = north east,
+                    ]
+                    \addplot[only marks, color = red, mark = * ] coordinates {
+                        (0,1)
+                        (0,4)
+                    };       
+                    \addlegendentry{$ \Diagrama(H_0( \mathcal{F}) )$ }
+
+
+                    \addplot[only marks, color = blue, mark = * ] coordinates {
+                        (1,2)
+                    };       
+                    \addlegendentry{$ \Diagrama(H_1( \mathcal{F}) )$ }
+
+                    \addplot[domain = -0.5:3, color = black, thick]  { x };
+                    \end{axis}
+                \end{tikzpicture}
+            \end{figure}
+
+        \end{itemize}
+    \end{frame}
+    % END frame 2}}}
+
+    % frame 19 {{{2 
+    \begin{frame}
+        \frametitle{O que é a Homologia Persistente}
+        \framesubtitle{Implementação Computacional}
+        \begin{itemize}
+            \item
+                A vantagem de se trabalhar com filtrações simpliciais
+                é a de existir um algoritmo simples para o cálculo
+                da Homologia Persistente
+
+            \item
+                De fato, o algoritmo consiste basicamente em realizar
+                uma eliminação gaussiana dos operadores bordos
+
+            \item
+                Apresentamos outro Exemplo  para ilustrar que
+                a Homologia Persistente nos fornece resultados
+                condisentes com o esperado
+
+            \item 
+                Este exemplo será resultado da eliminação gaussiana
+        \end{itemize}
+    \end{frame}
+    % END frame 2}}}
+
+    % frame {{{2 
+    \begin{frame}
+        \frametitle{O que é a Homologia Persistente}
+        \framesubtitle{Último Exemplo}
+
+        Simulação e Cálculo da Homologia Persistente
+
+        \begin{figure}[h]
+            \centering
+            \subfloat[]{
+            %% drawing \\beginVimFold
+            \begin{tikzpicture}[scale=0.7]
+                \begin{axis}[
+                    xmin = -2, xmax = 2,
+                    ymin = -2,  ymax = 2,
+                    xtick distance = 1,
+                    ytick distance = 1,
+                    xlabel = \textcolor{white}{Aa},
+                    ylabel = ,
+                    %legend style = {at = {(0.65,1)}},
+                    %legend pos = north east,
+                ]
+                \addplot[only marks, color = blue, mark = *]
+                    table [x index = 0, y index = 1, col sep = comma]
+                        {dados/nuvem_pontos_ch2_ex1.csv};
+                %\addlegendentry{\footnotesize risco de doença arterial coronária = 0}
+
+                \end{axis}
+            \end{tikzpicture}
+            %% \\endVimFold
+            }
+            \subfloat[]{
+            %% drawing \\beginVimFold
+            \begin{tikzpicture}[scale=0.7]
+                \begin{axis}[
+                    xmin = -0.01, xmax = 0.18,
+                    ymin = -0.01,  ymax = 0.18,
+                    yticklabels = { 0, 0.04, 0.08, 0.12, 0.16, $\infty$},
+                    ytick = {0, 0.04, 0.08, 0.12, 0.16, 0.17},
+                    xtick = {0, 0.04, 0.08, 0.12, 0.16},
+                    xticklabels = { 0, 0.04, 0.08, 0.12, 0.16},
+                    %xtick distance = 0.04,
+                    %ytick distance = 0.04,
+                    xlabel = Nascimento,
+                    ylabel = Morte,
+                    %legend style = {at = {(0.65,1)}},
+                    legend pos = south east,
+                ]
+                \addplot[only marks, color = red, mark = *, opacity=0.5]
+                    table [x index = 0, y index = 1, col sep = comma]
+                    {dados/diagrama_persistencia_dim0_ch2_ex1.csv};
+                %\addlegendentry{Alto risco de desenvolver doenças arteriais coronárias em 10 anos}
+                \addlegendentry{\footnotesize dim 0}
+
+                \addplot[only marks, color = blue, mark = *, opacity=0.5]
+                    table [x index = 0, y index = 1, col sep = comma]
+                    {dados/diagrama_persistencia_dim1_ch2_ex1.csv};
+                \addlegendentry{\footnotesize dim 1}
+
+                \addplot[domain = -0.01:0.17, color = black, dashed]  { x};
+                \draw (axis cs:-0.1,0.17) --  (axis cs:0.17,0.17);
+                \end{axis}
+
+            \end{tikzpicture}
+            %% \\endVimFold
+            }
+        \end{figure}
     \end{frame}
     % END frame 2}}}
     

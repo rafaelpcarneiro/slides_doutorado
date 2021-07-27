@@ -1,70 +1,69 @@
 \begin{figure}
     \centering
     %%%  diagrama \\beginVimFold
-    \begin{tikzpicture}[
-            scale=1,
-            every node/.style={midway, left, scale=0.8}
-        ]
-        \matrix [matrix of math nodes, column sep=1em, row sep=2.5em]
-        {
-            |(0e)| \cdots & |(ee)| \vdots & |(CD)| \vdots      & |(aa)| \vdots &
-            |(DD)| \vdots & |(cc)| \vdots & |(EE)| \vdots      & |(gg)| \vdots &
-            |(00e)| \cdots \\ 
-            %
-            |(0d)| \cdots       &               & |(C2)| H_2(X_a)    &               &
-            |(D2)| H_2(X_b)     &               & |(E2)| H_2(X_c)    &               & 
-            |(00d)| \cdots \\ 
-            %
-            |(0c)| \cdots       &               & |(C1)| H_1(X_a)     &                &
-            |(D1)| H_1(X_b)     &               & |(E1)| H_1(X_c)     &                &
-            |(00c)| \cdots \\ 
-            %
-            |(0b)| \cdots       &               & |(C0)| H_0(X_a)    &               &
-            |(D0)| H_0(X_b)     &               & |(E0)| H_0(X_c)    &               & 
-            |(00b)| \cdots \\ 
-            %
-            |(0a)| \cdots       &               & |(0C)| (0)         &               &
-            |(0D)| (0)          &               & |(0E)| (0)         &               &
-            |(00a)| \cdots \\[-1cm]
-            %
-                  \cdots        &   \leq        & a                  & \leq          & 
-                  b             & \leq          & c                  & \leq          & 
-                  \cdots\\
-        };
-        %\tikzstyle{every node} = [midway, left]
+    \begin{tikzpicture}
+        \node (a)                             {$a$};
+        \node (Oa)   [above = 0.1cm  of a   ] {$(0)$};
+        \node (H0Xa) [above = 1cm    of Oa  ] {$H_0(X_a)$};
+        \node (H1Xa) [above = 1cm    of H0Xa] {$H_1(X_a)$};
+        \node (H2Xa) [above = 1cm    of H1Xa] {$H_2(X_a)$};
+        \node        [above = 0.05cm of H2Xa] {$\vdots$};
 
-        \draw[thick, <-] (0C) -- node {$\bm{\partial}_0 $}    (C0);
-        \draw[thick, <-] (C0) -- node {$\bm{\partial}_1$}     (C1);
-        \draw[thick, <-] (C1) -- node {$\bm{\partial}_2$}     (C2);
-        \draw[thick, <-] (C2) -- node {$\bm{\partial}_3$}     (CD);
+        \draw[<-] (Oa)   -- node[left] {$\partial_0$} (H0Xa) ;
+        \draw[<-] (H0Xa) -- node[left] {$\partial_1$} (H1Xa) ;
+        \draw[<-] (H1Xa) -- node[left] {$\partial_2$} (H2Xa) ;
 
-        \draw[thick, <-] (0D) -- node {$\bm{\partial}_0 $} (D0);
-        \draw[thick, <-] (D0) -- node {$\bm{\partial}_1$} (D1);
-        \draw[thick, <-] (D1) -- node {$\bm{\partial}_2$} (D2);
-        \draw[thick, <-] (D2) -- node {$\bm{\partial}_3$}(DD);
+        \node (b)    [right = 2cm    of a   ] {$b$};
+        \node (Ob)   [above = 0.1cm  of b   ] {$(0)$};
+        \node (H0Xb) [above = 1cm    of Ob  ] {$H_0(X_b)$};
+        \node (H1Xb) [above = 1cm    of H0Xb] {$H_1(X_b)$};
+        \node (H2Xb) [above = 1cm    of H1Xb] {$H_2(X_b)$};
+        \node        [above = 0.05cm of H2Xb] {$\vdots$};
 
-        \draw[thick, <-] (0E) -- node {$\bm{\partial}_0 $} (E0);
-        \draw[thick, <-] (E0) -- node {$\bm{\partial}_1$} (E1);
-        \draw[thick, <-] (E1) -- node {$\bm{\partial}_2$} (E2);
-        \draw[thick, <-] (E2) -- node {$\bm{\partial}_3$}(EE);
+        \draw[<-] (Ob)   -- node[left] {$\partial_0$} (H0Xb) ;
+        \draw[<-] (H0Xb) -- node[left] {$\partial_1$} (H1Xb) ;
+        \draw[<-] (H1Xb) -- node[left] {$\partial_2$} (H2Xb) ;
 
-        %\draw[thick, ->] (0C) -- (0D) node[left] {$f_0$};
+        \node (c)    [right = 2cm    of b   ] {$c$};
+        \node (Oc)   [above = 0.1cm  of c   ] {$(0)$};
+        \node (H0Xc) [above = 1cm    of Oc  ] {$H_0(X_c)$};
+        \node (H1Xc) [above = 1cm    of H0Xc] {$H_1(X_c)$};
+        \node (H2Xc) [above = 1cm    of H1Xc] {$H_2(X_c)$};
+        \node        [above = 0.05cm of H2Xc] {$\vdots$};
 
-        \draw[thick, ->] (0b) --  (0b -| C0.west)   ;
-        \draw[thick, ->] (0c) --  (0c -| C1.west)   ;
-        \draw[thick, ->] (0d) --  (0d -| C2.west)   ;
+        \node (aL) [left  = 1cm of a] {$\leq$};
+        \node (cR) [right = 1cm of c] {$\leq$};
 
-        \draw[thick, ->] (C0) --  (C0  -| D0.west) node[above]  {$i^{a,b}_{\ast, 0}$};
-        \draw[thick, ->] (C1) --  (C1  -| D1.west) node[above]  {$i^{a,b}_{\ast, 1}$};
-        \draw[thick, ->] (C2) --  (C2  -| D2.west) node[above]  {$i^{a,b}_{\ast, 2}$};
+        \node (abHalf) [right = 0.7cm of a] {$\leq$};
+        \node (bcHalf) [right = 0.7cm of b] {$\leq$};
 
-        \draw[thick, ->] (D0) --  (D0  -| E0.west) node[above]   {$i^{b,c}_{\ast, 0}$};
-        \draw[thick, ->] (D1) --  (D1  -| E1.west) node[above]   {$i^{b,c}_{\ast, 1}$};
-        \draw[thick, ->] (D2) --  (D2  -| E2.west) node[above]   {$i^{b,c}_{\ast, 2}$};
+        \draw[<-] (Oc)   -- node[left] {$\partial_0$} (H0Xc) ;
+        \draw[<-] (H0Xc) -- node[left] {$\partial_1$} (H1Xc) ;
+        \draw[<-] (H1Xc) -- node[left] {$\partial_2$} (H2Xc) ;
 
-        \draw[thick, ->] (E0) --  (E0  -| 00b.west)   ;
-        \draw[thick, ->] (E1) --  (E1  -| 00c.west)   ;
-        \draw[thick, ->] (E2) --  (E2  -| 00d.west)   ;
+        \draw[->] (H0Xa) -- node[above] {$\iota_{\ast,0}^{a,b}$} (H0Xa.west -|H0Xb.west);
+        \draw[->] (H1Xa) -- node[above] {$\iota_{\ast,1}^{a,b}$} (H1Xa.west -|H1Xb.west);
+        \draw[->] (H2Xa) -- node[above] {$\iota_{\ast,2}^{a,b}$} (H2Xa.west -|H2Xb.west);
+
+        \draw[->] (H0Xb) -- node[above] {$\iota_{\ast,0}^{b,c}$} (H0Xb.west -|H0Xc.west);
+        \draw[->] (H1Xb) -- node[above] {$\iota_{\ast,1}^{b,c}$} (H1Xb.west -|H1Xc.west);
+        \draw[->] (H2Xb) -- node[above] {$\iota_{\ast,2}^{b,c}$} (H2Xb.west -|H2Xc.west);
+
+        \node (H0XaL) [left = 1cm of H0Xa] {$\cdots$};
+        \node (H1XaL) [left = 1cm of H1Xa] {$\cdots$};
+        \node (H2XaL) [left = 1cm of H2Xa] {$\cdots$};
+        \draw[->] (H0XaL) -- (H0Xa);
+        \draw[->] (H1XaL) -- (H1Xa);
+        \draw[->] (H2XaL) -- (H2Xa);
+
+        \node (H0XcR) [right = 1cm of H0Xc] {$\cdots$};
+        \node (H1XcR) [right = 1cm of H1Xc] {$\cdots$};
+        \node (H2XcR) [right = 1cm of H2Xc] {$\cdots$};
+        \draw[->] (H0Xc) -- (H0XcR);
+        \draw[->] (H1Xc) -- (H1XcR);
+        \draw[->] (H2Xc) -- (H2XcR);
+
+
     \end{tikzpicture}
     %%% \\endVimFold
 \end{figure}
