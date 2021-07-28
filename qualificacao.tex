@@ -93,6 +93,7 @@
 \newtheorem{proposicao}{Proposição}
 %%% 1}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %|--- Begin Document {{{1
 \begin{document}
 
@@ -105,6 +106,7 @@
     \end{frame}
     % END frame 2}}}
 
+\section{Introdução}
     % frame 1 {{{2 
     \begin{frame}
         \frametitle{Introdução}
@@ -1156,7 +1158,7 @@
     \end{frame}
     % END frame 2}}}
 
-    % frame {{{2 
+    % frame 20 {{{2 
     \begin{frame}
         \frametitle{O que é a Homologia Persistente}
         \framesubtitle{Último Exemplo}
@@ -1225,9 +1227,518 @@
         \end{figure}
     \end{frame}
     % END frame 2}}}
-    
-%%%%%%%% Convergencia do numero de Betti
 
+    % frame 21 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O Processo Pontual Estudado}
+        \begin{itemize}
+            \item
+                O Processo Pontual que servirá de base para nosso estudo
+                pode ser entendido como\\[0.5cm]
+                \begin{center}
+                    A evolução temporal de chamadas telefônicas na reta
+                    real sendo que apenas $C$ chamadas podem ocorrer
+                    simultâneamente no mesmo ponto\\[0.5cm]
+                \end{center} 
+
+            \item Exemplo: fixado um tempo $t \in \R$ e $C = 3$ temos
+                \begin{figure}
+                    \centering
+                    \begin{tikzpicture}
+                        \draw[->, line width=2pt] (0,0) -- (7,0) node[right] {$\R$};
+
+                        \draw[red,    |-|, line width=1pt] (1.0, 0.2) -- (2.0,0.2);
+                        \draw[green,  |-|, line width=1pt] (1.5, 0.4) -- (4.0,0.4);
+                        \draw[blue,   |-|, line width=1pt] (6.0, 0.2) -- (6.5,0.2);
+                        \draw[yellow, |-|, line width=1pt] (0.0, 0.6) -- (1.7,0.6);
+
+                        \draw[-, dotted, very thick] (1.5, -1) 
+                            node[below, draw] {este ponto não pode haver mais ligação}
+                            -- (1.5, 0.8);
+                    \end{tikzpicture}
+                \end{figure}
+        \end{itemize}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 22 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O Processo Pontual Estudado}
+
+        \begin{itemize}
+            \item
+                O mesmo Exemplo, agora considerando sua dinâmica no tempo
+
+                \begin{figure}
+                    \centering
+                    \begin{tikzpicture}
+                        \draw[->, line width=2pt] (8,-1) -- (8,4) node[above] {$t$};
+                        \draw (3.5,3.8) node[above, scale=1.5] {$\vdots$};
+                        \draw (3.5,-1.0) node[below, scale=1.5] {$\vdots$};
+                        \begin{scope}
+                            \draw[->, line width=2pt] (0,0) -- (7,0) node[right] {$\R$};
+
+                            \draw[red,    |-|, line width=1pt] (1.0, 0.2) -- (2.0,0.2);
+                            \draw[green,  |-|, line width=1pt] (1.5, 0.4) -- (4.0,0.4);
+                            \draw[blue,   |-|, line width=1pt] (6.0, 0.2) -- (6.5,0.2);
+                            \draw[yellow, |-|, line width=1pt] (0.0, 0.6) -- (1.7,0.6);
+                        \end{scope}
+
+                        \begin{scope}[shift={(0,1.5)}]
+                            \draw[->, line width=2pt] (0,0) -- (7,0) node[right] {$\R$};
+
+                            \draw[red,    |-|, line width=1pt] (1.0, 0.2) -- (2.0,0.2);
+                            \draw[green,  |-|, line width=1pt] (1.5, 0.4) -- (4.0,0.4);
+                            \draw[blue,   |-|, line width=1pt] (6.0, 0.2) -- (6.5,0.2);
+                            \draw[yellow, |-|, line width=1pt] (0.0, 0.6) -- (1.7,0.6);
+                            \draw[cyan,   |-|, line width=1pt] (4.5, 0.4) -- (6.2,0.4);
+                            \draw[brown,  |-|, line width=1pt] (3.0, 0.6) -- (5.0,0.6);
+                        \end{scope}
+
+                        \begin{scope}[shift={(0,3.0)}]
+                            \draw[->, line width=2pt] (0,0) -- (7,0) node[right] {$\R$};
+
+                            \draw[red,    |-|, line width=1pt] (1.0, 0.2) -- (2.0,0.2);
+                            \draw[blue,   |-|, line width=1pt] (6.0, 0.2) -- (6.5,0.2);
+                            \draw[cyan,   |-|, line width=1pt] (4.5, 0.4) -- (6.2,0.4);
+                        \end{scope}
+                    \end{tikzpicture}
+                \end{figure}
+        \end{itemize}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 23 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O Processo Pontual Estudado}
+
+        \begin{itemize}
+            \item
+                Sob certas condições esta dinâmica de ``nascimento''
+                e ``morte'' converge para um ``equilíbrio'', \\[0.4cm]
+
+            \item
+                ou melhor dizendo, converge
+                \begin{center}
+                    para uma \textbf{medida invariante} \\[0.4cm]
+                \end{center}
+
+            \item
+                Ou seja, temos um padrão para o Processo Pontual das
+                chamadas telefônicas, quando $t \to \infty$ \\[0.4cm]
+
+            \item
+                Ai que chegamos aonde queriamos:
+
+                \begin{figure}
+                    \centering
+                    \begin{tikzpicture}
+                        \draw (0,0) node[scale=2, draw, dashed] {Simulação Perfeita};
+                    \end{tikzpicture}
+                \end{figure}
+
+        \end{itemize}
+    \end{frame}
+    %END frame 2}}}
+    
+    % frame 24 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O Processo Pontual Estudado}
+
+        \begin{itemize}
+            \item
+                A \textbf{Simulação Perfeita} será a ferramenta que nos
+                fornecerá o Processo Pontual em equilíbrio
+
+            \item
+                De forma simplificada, ela consiste em
+
+            \item
+                Dado um intervalo $[a,b]$
+
+            \item
+                E considerando que o comprimento de ligações
+                vem de uma distribuição $\pi$
+                \begin{equation*}
+                    \pi \sim \mathcal{U}(0, H)
+                \end{equation*}
+
+                \begin{enumerate}
+
+                    \item
+                        Gerar pontos de um Processo Pontual de Poisson de
+                        taxa $\lambda$ em $[a,b]$:
+                        \begin{equation*}
+                            x_1, x_2, \ldots, x_N
+                        \end{equation*}
+
+                        \begin{tikzpicture}
+                            \draw[-|] (0,0) -- (2,0) node[above] {$a$};
+                            \draw[-|] (2,0) -- (8,0) node[above] {$b$};
+                            \draw[->] (6,0) -- (9,0);
+
+                            \fill[blue] (2.5,0) circle (0.1cm);
+                            \fill[blue] (5,0) circle (0.1cm);
+                            \fill[blue] (7,0) circle (0.1cm);
+                        \end{tikzpicture}
+                \end{enumerate}
+
+        \end{itemize}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 25 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O Processo Pontual Estudado}
+        \begin{enumerate}
+            \setcounter{enumi}{1}
+
+            \item
+                E gerar uma sequência de pontos ancestrais a $x_i$
+                % figura {{{3
+                \begin{tikzpicture}[scale=0.8]
+                    \draw[-|] (0,0) -- (2,0) node[above] {$a$};
+                    \draw[-|] (2,0) -- (8,0) node[above] {$b$};
+                    \draw[->] (6,0) -- (9,0);
+
+                    \fill[blue] (2.5,0) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (2.5,0) rectangle (3,-1);
+
+                    \fill[blue] (2.8,-0.8) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (2.8,-0.8) rectangle (3.1,-1.4);
+
+                    \fill[blue] (3,-1.25) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (3,-1.25) rectangle (4,-4);
+
+                    \fill[blue] (5,0) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (5,0) rectangle (6,-3);
+
+                    \fill[blue] (4.5,-2) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (4.5,-2) rectangle (5.8,-5);
+
+                    \fill[blue] (5.4,-1) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (5.4,-1) rectangle (6.8,-7);
+
+                    \fill[blue] (5.2,-2.5) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (5.2,-2.5) rectangle (5.7,-4);
+
+                    \fill[blue] (7,0) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (7,0) rectangle (7.5,-2);
+
+                    \draw[->, line width=2pt] (10,-7.2) -- (10,0.2) node[above] {$t$};
+                \end{tikzpicture}
+                % END figure 3}}}
+
+        \end{enumerate}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 26 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O Processo Pontual Estudado}
+        \begin{enumerate}
+            \setcounter{enumi}{2}
+
+            \item
+                Com os pontos ancestrais uma  filtração é
+                realizada baseada no máximo de ligações simultâneas $C$
+
+            \item
+                Por exemplo, sendo $C=3$
+                % figura {{{3
+                \begin{figure}
+                    \centering  
+
+                \begin{tikzpicture}[scale=0.6]
+                    \draw[-|] (0,0) -- (2,0) node[above] {$a$};
+                    \draw[-|] (2,0) -- (8,0) node[above] {$b$};
+                    \draw[->] (6,0) -- (9,0);
+
+                    \fill[blue] (2.5,0) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (2.5,0) rectangle (3,-1);
+
+                    \fill[blue] (2.8,-0.8) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (2.8,-0.8) rectangle (3.1,-1.4);
+
+                    \fill[blue] (3,-1.25) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (3,-1.25) rectangle (4,-4);
+
+                    \fill[blue] (5,0) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (5,0) rectangle (6,-3);
+
+                    \fill[blue] (4.5,-2) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (4.5,-2) rectangle (5.8,-5);
+
+                    \fill[blue] (5.4,-1) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (5.4,-1) rectangle (6.8,-7);
+
+                    \fill[blue] (5.2,-2.5) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (5.2,-2.5) rectangle (5.7,-4);
+
+                    \fill[blue] (7,0) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (7,0) rectangle (7.5,-2);
+
+                    % filtracao
+
+                    \def\excluir{(4.4,+0.1) rectangle (6.9,-7.1);}
+                    \draw[red, dotted, line width=2pt] \excluir;
+                    \begin{scope}
+                        \clip \excluir
+                        \draw[line width=2pt, red, opacity=0.6]
+                            (4.4,0.1) -- (6.9, -7.1);
+                        \draw[line width=2pt, red, opacity=0.6]
+                            (4.4,-7.1) -- (6.9, 0.1);
+                    \end{scope}
+
+                    \draw[->, line width=2pt] (10,-7.2) -- (10,0.2) node[above] {$t$};
+                \end{tikzpicture}
+                \end{figure}
+                % END figure 3}}}
+        \end{enumerate}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 27 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O Processo Pontual Estudado}
+        \begin{enumerate}
+            \setcounter{enumi}{4}
+
+            \item
+                Após a filtração, o Processo Pontual será:
+
+                \begin{enumerate}[(i)]
+                    \item
+                        Os  pontos $x_1, x_2, \ldots, x_N$ restantes
+                        da filtração;
+
+                    \item
+                        E os retângulos ancestrais, formando o \emph{clã
+                        de ancestrais}
+                \end{enumerate}
+                % figura {{{3
+                \begin{figure}
+                    \centering  
+
+                \begin{tikzpicture}[scale=0.6]
+                    \draw[-|] (0,0) -- (2,0) node[above] {$a$};
+                    \draw[-|] (2,0) -- (8,0) node[above] {$b$};
+                    \draw[->] (6,0) -- (9,0);
+
+                    \fill[blue] (2.5,0) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (2.5,0) rectangle (3,-1);
+
+                    \fill[blue] (2.8,-0.8) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (2.8,-0.8) rectangle (3.1,-1.4);
+
+                    \fill[blue] (3,-1.25) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (3,-1.25) rectangle (4,-4);
+
+                    \fill[blue] (7,0) circle (0.1cm);
+                    \draw[fill=blue,opacity=0.3,dashed] (7,0) rectangle (7.5,-2);
+
+                    \draw[->, line width=2pt] (10,-7.2) -- (10,0.2) node[above] {$t$};
+                \end{tikzpicture}
+                \end{figure}
+                % END figure 3}}}
+        \end{enumerate}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 28 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O Processo Pontual Estudado}
+
+        \begin{itemize}
+            \item
+                Dado o Processo Pontual resultante da Simulação
+                Perfeita, denotado por $\zeta$
+
+            \item
+                Vamos Estudar o comportamento da taxa do \emph{número
+                de persistência de Betti de dimensão $0$} de $\zeta$ na
+                janela
+                \begin{equation*}
+                    \Lambda = \left[ -\frac{L}{2}, \frac{L}{2} \right] \cap \zeta,
+                \end{equation*}
+                com $L \in \R_{>0}$, fazendo $L \to \infty$
+
+
+                \begin{tikzpicture}[scale=0.8]
+                    \draw[->] (-5,0) -- (7,0) node[below, right] {$\R$};
+
+                    \draw[|-|, ultra thick, red]
+                           (-3,0) node[below] {$-\frac{L}{2}$}
+                        -- (3,0) node[below] {$\frac{L}{2}$};
+
+                        \fill[blue] (-4.0,0.0) circle (0.1cm);
+                        \fill[blue] (-4.5,0.0) circle (0.1cm);
+                        \fill[blue] (-3.5,0.0) circle (0.1cm);
+                        \fill[blue] (+3.5,0.0) circle (0.1cm);
+                        \fill[blue] (+5.0,0.0) circle (0.1cm);
+                        \fill[blue] (+6.3,0.0) circle (0.1cm);
+                        \fill[blue] (+0.0,0.0) circle (0.1cm);
+                        \fill[blue] (+0.9,0.0) circle (0.1cm);
+                        \fill[blue] (+1.4,0.0) circle (0.1cm);
+                        \fill[blue] (+2.3,0.0) circle (0.1cm);
+
+                        \draw[->, ultra thick] (3,-1) -- (4,-1) node[right] {$\infty$};
+                        \draw[->, ultra thick] (-3,-1) -- (-4,-1) node[left] {$\infty$};
+                \end{tikzpicture}
+        \end{itemize}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 29 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O que é o Número de Persistência de Betti}
+        \begin{itemize}
+            \item
+                Lembremos que o módulo de Persistência de dimensão
+                $0$ será a tupla
+                \[
+                    \begin{tikzpicture}[scale=2]
+                        \begin{scope}
+                            \draw[->, very thick] (-0.3,0) -- (4.1,0) node[right, below]
+                                {$\R_{\geq 0}$};
+                            \node[left] at (-0.5,0) {$H_0(\mathcal{F})$};
+                            \node[left] at (-0.4,0) {:};
+
+                            \node[above] at (0,0.1) {$H_0^0$};
+                            \node[above] at (1,0.1) {$H_0^1$};
+                            \node[above] at (2,0.1) {$H_0^a$};
+                            \node[above] at (3,0.1) {$H_0^b$};
+                            \node[above] at (3.5,0.14) {$\cdots$};
+                            \node[above] at (3.5,-0.2) {$\cdots$};
+                            
+                            \draw[-, thick] (0,0.1) --  (0,-0.1) node[below] {$0$}; 
+                            \draw[-, thick] (1,0.1) --  (1,-0.1) node[below] {$1$}; 
+                            \draw[-, thick] (2,0.1) --  (2,-0.1) node[below] {$a$}; 
+                            \draw[-, thick] (3,0.1) --  (3,-0.1) node[below] {$b$}; 
+
+                            \draw[ |->, thick] (0.1, 0.2) -- (0.9, 0.2) node[midway, above]
+                                {$i_{\ast, 0}^{0,1}$};
+                            \draw[ |->, thick] (1.1, 0.2) -- (1.9, 0.2) node[midway, above]
+                                {$i_{\ast, 0}^{1,a}$};
+                            \draw[ |->, thick] (2.1, 0.2) -- (2.9, 0.2) node[midway, above]
+                                {$i_{\ast, 0}^{a,b}$};
+                        \end{scope}
+                    \end{tikzpicture}
+                \]
+
+                \begin{definicao}
+                    Fixados $0 \leq a \leq b \in \R$, o \emph{Número
+                    de Persistência de Betti} de dimensão $0$, no intervalo $(a,b)$,
+                    é o valor
+                    \begin{equation*}
+                        \beta_0^{a,b} = \dim( \Imagem(i_{\ast, 0}^{2,3}) )
+                    \end{equation*}
+                \end{definicao}
+        \end{itemize}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 30 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{O  Número de Persistência de Betti como uma medida}
+
+        \begin{itemize}
+            \item
+                Podemos interpretar o Número de Persistência de Betti
+                como a quantidade de pontos do Diagrama de Persistência
+                no retângulo
+                \begin{equation*}
+                    [-\infty, a] \times [b, \infty]
+                \end{equation*}
+
+                \[
+                    \begin{tikzpicture}[scale=0.7]
+                        \draw[very thick, ->] (-1,0) --  (6,0) node[below right] {$x$};
+                        \draw[very thick, ->] (-0,-1) -- (0,6) node[above left ] {$y$};
+                        \draw (0,0) node[below right] {$0$};
+
+                        \draw[-, very thick] (-1,-1) -- (6,6);
+
+                        \fill[red] (2,3) circle (0.1cm);
+                        \fill[red] (2,4) circle (0.1cm);
+                        \fill[red] (0,4) circle (0.1cm);
+                        \fill[red] (5,6) circle (0.1cm);
+                        \fill[red] (5,5) circle (0.1cm);
+
+                        \fill[opacity=0.2] (-1,2) rectangle (3,6);
+                        \draw[dashed] (0,2) node[below left] {$b$} 
+                            -- (3,2) -- (3,0) node[below left] {$a$};
+                    \end{tikzpicture}
+                \]
+        \end{itemize}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 31 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{Tática}
+
+        \begin{tikzpicture}[scale=1]
+            \begin{scope}[scale=0.5]
+                    \draw[->] (-5,0) -- (7,0) node[below, right] {$\R$};
+
+                    \draw[|-|, ultra thick, red]
+                           (-3,0) node[below] {$-\frac{L}{2}$}
+                        -- (3,0) node[below] {$\frac{L}{2}$};
+
+                        \fill[blue] (-4.0,0.0) circle (0.1cm);
+                        \fill[blue] (-4.5,0.0) circle (0.1cm);
+                        \fill[blue] (-3.5,0.0) circle (0.1cm);
+                        \fill[blue] (+3.5,0.0) circle (0.1cm);
+                        \fill[blue] (+5.0,0.0) circle (0.1cm);
+                        \fill[blue] (+6.3,0.0) circle (0.1cm);
+                        \fill[blue] (+0.0,0.0) circle (0.1cm);
+                        \fill[blue] (+0.9,0.0) circle (0.1cm);
+                        \fill[blue] (+1.4,0.0) circle (0.1cm);
+                        \fill[blue] (+2.3,0.0) circle (0.1cm);
+
+                        \draw[->, ultra thick] (3,-1) -- (4,-1) node[right] {$\infty$};
+                        \draw[->, ultra thick] (-3,-1) -- (-4,-1) node[left] {$\infty$};
+            \end{scope}
+
+            \begin{scope}[shift={(0,-6)}, scale=0.5]
+                \draw[very thick, ->] (-1,0) --  (6,0) node[below right] {$x$};
+                \draw[very thick, ->] (-0,-1) -- (0,6) node[above left ] {$y$};
+                \draw (0,0) node[below right] {$0$};
+
+                \draw[-, very thick] (-1,-1) -- (6,6);
+
+                \fill[red] (2,3) circle (0.1cm);
+                \fill[red] (2,4) circle (0.1cm);
+                \fill[red] (0,4) circle (0.1cm);
+                \fill[red] (5,6) circle (0.1cm);
+                \fill[red] (5,5) circle (0.1cm);
+
+                \fill[opacity=0.2] (-1,2) rectangle (3,6);
+                \draw[dashed] (0,2) node[below left] {$b$} 
+                    -- (3,2) -- (3,0) node[below left] {$a$};
+            \end{scope}
+
+            \begin{scope}[shift={(4,0)}, yscale=2]
+                \draw[ultra thick, ->] (0,0) ..controls (2,-0.5) and (2,-1.5) .. (0,-2);
+
+            \end{scope}
+
+            \draw (7,-5) node[scale=2] {$\frac{\beta_0^{a,b}}{L}$};
+        \end{tikzpicture}
+    \end{frame}
+    %END frame 2}}}
 
 %%%%%%%%%% Twitter
 %	% frame 1 {{{2
