@@ -41,6 +41,18 @@
 
 % 1}}}
 
+%|--- Author, Title and Date {{{1
+\title{
+    O Estudo de Processos Pontuais por meio da Análise
+    Topológica de Dados e Aplica\c{c}\~oes}
+\author{
+    \textbf{aluno}: Rafael Polli Carneiro\\
+    \textbf{orientador}: Cristian Coletti
+}
+
+\date{} 
+% 1}}}
+
 %%%%%%%%%%%%%%%%%  Math operators %%%%%%%%%%%%%%%%%%%%%%%
 %%% {{{1
 \DeclareMathOperator {\card}{card}
@@ -102,11 +114,38 @@
     \begin{frame}
         \frametitle{}
         \maketitle
-        \tableofcontents
+
+        \begin{flushleft}
+            \small
+            \textbf{MEMBROS DA BANCA}:\\
+            \textbf{Presidente}:     Cristian Favio Coletti         - UFABC\\
+            \textbf{Membro Titular}: Daniel Miranda Machado         - UFABC\\
+            \textbf{Membro Titular}: Natalia Andrea Viana Bedoya    - UFSCAR\\
+            \textbf{Membro Suplente}: Erika Alejandra Rada Mora     - UFABC\\
+            \textbf{Membro Suplente}: Mariana Rodrigues Da silveira - UFABC
+        \end{flushleft}
     \end{frame}
     % END frame 2}}}
 
 \section{Introdução}
+    % frame Section {{{2 
+    \begin{frame}
+
+        \begin{figure}
+            \begin{tikzpicture}
+                \draw[fill=red!60!black] 
+                    (-4,0) rectangle (-0.1,1.7)
+                    node[midway, right,scale=3, color=white] {$1.$};
+
+                \draw[fill=gray!60, opacity=0.8]
+                    (0,0) rectangle (8,1.7)
+                    node[midway, scale=3, color=white]
+                    {Introdução};
+            \end{tikzpicture}
+        \end{figure}
+    \end{frame}
+    %END frame 2}}}
+
     % frame 1 {{{2 
     \begin{frame}
         \frametitle{Introdução}
@@ -115,7 +154,7 @@
         preliminares para os seguintes problemas
 
         \begin{enumerate}
-            \item \textbf{Primeiro Problema}:
+            \item Primeiro Problema:
             \begin{center}
                     \emph{
                         Estudar \textbf{``propriedades persistentes''} de uma
@@ -124,7 +163,7 @@
                     }
             \end{center}
 
-        \item \textbf{Segundo Problema}:
+        \item Segundo Problema:
             \begin{center}
                 \begin{itemize}
                     \item
@@ -1228,6 +1267,26 @@
     \end{frame}
     % END frame 2}}}
 
+
+\section{Resultados - Pt1}
+    % frame Section {{{2 
+    \begin{frame}
+
+        \begin{figure}
+            \begin{tikzpicture}
+                \draw[fill=red!60!black] 
+                    (-4,0) rectangle (-0.1,1.7)
+                    node[midway, right,scale=3, color=white] {$2.$};
+
+                \draw[fill=gray!60, opacity=0.8]
+                    (0,0) rectangle (8,1.7)
+                    node[midway, scale=3, color=white]
+                    {Resultados - Pt1};
+            \end{tikzpicture}
+        \end{figure}
+    \end{frame}
+    %END frame 2}}}
+
     % frame 21 {{{2 
     \begin{frame}
         \frametitle{Primeira Parte do Trabalho}
@@ -1740,170 +1799,286 @@
     \end{frame}
     %END frame 2}}}
 
-%%%%%%%%%% Twitter
-%	% frame 1 {{{2
-%	\begin{frame}
-%		\frametitle{O que é um Tweet}
-%		\begin{enumerate}
-%			\item Um tweet pode ser abstraído como o elemento da Figura abaixo
-%			\begin{figure}[h]
-%				\centering
-%				\includegraphics{pics/pic0.pdf}
-%			\end{figure}
-%			\item \textbf{Tipo da mensagem} pode ser igual a "mensagem", "RT", "resposta", ou "Quote"
-%		\end{enumerate}
-%		\end{frame}
-%	% END frame 1 2}}}
-%
-%	% frame 2 {{{2
-%	\begin{frame}
-%		\frametitle{Intereção entre Tweets}
-%		\begin{enumerate}
-%			\item Tweets podem interagir entre si, por exemplo:
-%			\begin{figure}[h]
-%				\centering
-%				\includegraphics[scale=0.45]{pics/pic1.pdf}
-%			\end{figure}
-%		\end{enumerate}
-%		\end{frame}
-%	% END frame 2 2}}}
-%
-%	% frame 3 {{{2
-%	\begin{frame}
-%		\frametitle{Intereção entre Tweets}
-%		\begin{enumerate}
-%			\item A intereçaão entre os tweets pode continuar indefinitivamente.
-%			\begin{figure}[h]
-%				\centering
-%				\includegraphics[scale=0.3]{pics/pic2.pdf}
-%			\end{figure}
-%		\end{enumerate}
-%		\end{frame}
-%	% END frame 3 2}}}
-%
-%	% frame 4 {{{2
-%	\begin{frame}
-%		\frametitle{Grafo formado pelos Tweets}
-%		\begin{enumerate}
-%			\item Os tweets assim nos fornecem uma sequência de árvores, 
-%				que será o objeto de nossa análise;
-%			\item \textbf{Obs}: Os IDs dos tweets são únicos;
-%			\item \textbf{Obs}: A intereção entre os autores dos tweets ainda
-%				não está sendo levada em conta
-%			\item \textbf{Obs} Por interação entre os autores me refiro a situação
-%				de, por exemplo, uma pessoa X seguir ou não uma pessoa Y.
-%				Sendo que X e Y publicaram um tweet
-%		\end{enumerate}
-%		\end{frame}
-%	% END frame 4 2}}}
-%
-%	% frame 5 {{{2
-%	\begin{frame}
-%		\frametitle{Dados coletados até agora}
-%		\begin{enumerate}
-%			\item Os tweets coletados são referentes a mensagems publicadas no
-%				dia 25/03/2021 ocorrendo no período das 18h até as 21h (UTC -3)
-%				e contendo alguma das seguintes palavras chaves (em pt):
-%				\begin{enumerate}
-%					\item vacina \textit{ou}
-%					\item cloroquina  \textit{ou}
-%					\item covid \textit{ou} corona \textit{ou} covid-19 \textit{ou}
-%					\item tratamento antecipado \textit{ou} tratamento precoce \textit{ou}
-%					\item azitromicina \textit{ou}
-%					\item lockdown
-%				\end{enumerate}
-%			\item \textbf{Obs} Vale notar que toda mensagem publicada no horário 
-%				descrito pode ter um "parent tweet", ou seja,
-%				a mensagem coletada é uma resposta ou um RT ou uma Quote
-%				de outro tweet. Nestes casos, o tweet pai será incluso 
-%				em minha análise, mesmo o mesmo tendo sido publicado fora 
-%				do horário ou não contendo alguma das palavras chaves acima.
-%		\end{enumerate}
-%		\end{frame}
-%	% END frame 5 2}}}
-%
-%	% frame 6 {{{2
-%	\begin{frame}
-%		\frametitle{Visualização do grafo obtido}
-%			\begin{figure}[h]
-%				\centering
-%				\includegraphics[scale=0.02]{pics/treeGraph_v01_coloured_scaled.png}
-%			\end{figure}
-%		\end{frame}
-%	% END frame 6 2}}}
-%
-%	% frame 7 {{{2
-%	\begin{frame}
-%		\frametitle{Algumas mensagens coletadas}
-%		\begin{itemize}
-%			\item A seguir listo as mensagens que possuim mais de 1000 filhos,
-%				i.e., mais de 1000 pessoas interagem com estas mensagens.
-%				No total são apenas 7 mensagens.
-%		\end{itemize}
-%		\end{frame}
-%	% END frame 7 2}}}
-%
-%	% frame 8 {{{2
-%	\begin{frame}
-%		\frametitle{Algumas mensagens coletadas (mensagens casuais)}
-%		\begin{enumerate}
-%			\item @leelecarvalho\_ "eu estou fazendo minha parte nesse lockdown, mas não milito em cima
-%				de qm ta saindo, pq não sair agora, não anula o fato de eu ter saído antes,
-%				tem uns aqui nesse tt mt hipocrita, furou a quarentena toda e agr no lockdown
-%				quer pagar de alecrim dourado kkkkk"
-%
-%			\item @Jouberth19 "lockdown e feriado de 10 dias pra vocês, pq eu vou continuar
-%				trabalhando normalmente"
-%
-%			\item @daycrvg10 "o dia q anunciarem q n há mais covid vai ser O DIA"
-%
-%			\item @isa\_abrantes10 "Bota a Gabi da FGV nesse governo pra ver se ela não consegue vacina
-%				pra todo mundo em uma semana"
-%
-%		\end{enumerate}
-%		\end{frame}
-%	% END frame 8 2}}}
-%
-%	% frame 9 {{{2
-%	\begin{frame}
-%		\frametitle{Algumas mensagens coletadas (fakenews)}
-%		\begin{enumerate}
-%
-%			\item @bicmuller "vcs tem noção que a Austrália, ZEROU as restrições pra covid ??
-%				Sem mascara, bar aberto, estadio de futebol com 100\%
-%				de capacidade CABOU COVID NA AUSTRALIA"
-%
-%			\item @IsabelasemZ "URGENTE - EMPRESÁRIOS  ANUNICAM DOAÇÃO DE 10 MILHÕES  DE VACINAS.
-%				Após reunião com Paulo Guedes, os empresários Luciano Hang e Carlos
-%				Wizard anunciaram a doação para o SUS de 10 milhões de doses da vacina 
-%				contra a Covid.SERÁ QUE A IMPRENSA VAI DIZER QUE ELES SÃO BOLSONARISTAS?"
-%
-%			\item @BrazilFight "URGENTE: Após reunião com Min. Paulo Guedes, os empresários Luciano Hang
-%				e Carlos Wizard anunciaram a doação para o SUS de 10 milhões de doses da 
-%				vacina contra a Covid. \#VacinaBrasil https://t.co/pAllXiO6Q6"
-%		\end{enumerate}
-%		\end{frame}
-%	% END frame 9 2}}}
-%
-%	% frame 11 {{{2
-%	\begin{frame}
-%		\frametitle{Resultados Preliminares}
-%		\begin{itemize}
-%			\item Do grafo obtido iremos analisar seu diagrama
-%				de persistência de dimensão 0 e 1
-%
-%			\item Aqui a persistência será obtida pela técnica
-%				envolvendo a homologia de caminhos persistentes (path persistent
-%				homology)
-%			\item Vale notar que para o cálculo desta homologia precisamos
-%				ter estabelecido uma matriz de peso para as arestas
-%			\item Esta matriz de peso eu adotarei como o intervalo de tempo levado
-%				para uma mensagem filha aparecer, em relação ao "parent tweet"
-%			\item Com isto obtemos
-%		\end{itemize}
-%		\end{frame}
-%	% END frame 11 2}}}
-%
+    % frame 32   {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{Resultados}
+
+        \begin{proposicao}\label{prop:primeira_conv}
+          Seja $\bm{\zeta}$ o processo pontual dos germes induzido
+          pela medida invariante do processo pontual das redes
+          com perdas, $\Lambda_{L} = [-L/2, L/2) \subseteq \R$ um
+          intervalo e $\bm{\zeta}_{\Lambda_{L}} = \bm{\zeta} \cap
+          \Lambda_{L}$. Então, considerando a filtração simplicial
+          $\mathbb{K}( \bm{\zeta}_{\Lambda_{L}} )$ dos pontos de
+          $\bm{\zeta}_{\Lambda_{L}}$, temos que, para todos reais $r
+          \leq s$, existe o valor $\beta_{0}^{r,s}$ tal que
+          \[
+            \lim_{L \to \infty}
+            \frac {
+                \mathbb{E}[\;
+                        \beta_{0}^{r,s} (\mathbb{K}(\bm{\zeta}_{\Lambda_{L}}))
+                \;]
+            }
+            {L}
+            %
+            =  \hat{\beta}_{0}^{r,s}
+          \]
+        \end{proposicao}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 33 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{Resultados}
+
+        \begin{proposicao}\label{prop:conv_quase_certa}
+          Seja $\bm{\zeta}$ o processo pontual dos germes induzido
+          pela medida invariante do processo pontual das redes com
+          perdas, $\Lambda_{L} = [-L/2, L/2) \subseteq \R$ um intervalo
+          e $\bm{\zeta}_{\Lambda_{L}} = \bm{\zeta} \cap \Lambda_{L}$.
+          Então, sempre quando o processo $\zeta$ satisfazer as
+          condições de ergodicidade, e considerando a filtração
+          simplicial $\mathbb{K}( \bm{\zeta}_{\Lambda_{L}} )$ dos pontos
+          de $\bm{\zeta}_{\Lambda_{L}}$, temos que, para todos reais $r
+          \leq s$, existe o valor $\hat{ \beta }_{0}^{r,s}$ tal que
+          \[
+            \lim_{L \to \infty}
+            \frac{ 
+                \beta_{0}^{r,s} (\mathbb{K}(\bm{\zeta}_{\Lambda_{L}}))
+            }{L}
+            =
+            \hat {\beta}_{0}^{r,s}, \text{ q.c. }
+          \]
+        \end{proposicao}
+    \end{frame}
+    %END frame 2}}}
+
+    % frame 34 {{{2 
+    \begin{frame}
+        \frametitle{Primeira Parte do Trabalho}
+        \framesubtitle{Resultados}
+
+        \begin{proposicao}\label{prop:conv_quase_certa}
+          Seja $\bm{\zeta}$ o processo pontual dos germes induzido
+          pela medida invariante do processo pontual das redes
+          com perdas, $\Lambda_{L} = [-L/2, L/2) \subseteq \R$ um
+          intervalo e $\bm{\zeta}_{\Lambda_{L}} = \bm{\zeta} \cap
+          \Lambda_{L}$. Então, considerando a filtração simplicial
+          $\mathbb{K}( \bm{\zeta}_{\Lambda_{L}} )$ dos pontos de
+          $\bm{\zeta}_{\Lambda_{L}}$, temos que, para todos reais $r
+          \leq s$, existe o valor $\hat{ \sigma }_{r,s}$ tal que
+          \begin{equation} \label{eq:main_result_5}
+            \frac{
+              \beta_{0}^{r,s}( \mathbb{K}( \zeta \cap \Lambda_{L} ) ) -
+              \mathbb{E}\left[
+                  \beta_{0}^{r,s}( \mathbb{K}( \zeta \cap \Lambda_{L} ) )
+                   \right]
+            }
+            {L^{1/2}}
+            \xrightarrow{L \to \infty} \mathcal{N}(0,\hat{\sigma}^{2}_{r,s}),
+          \end{equation}
+          onde a convergência acima é a convergência de distribuição e
+          $\mathcal{N}(0,\hat{\sigma}^{2})$ é a distribuição normal.
+        \end{proposicao}
+    \end{frame}
+    %END frame 2}}}
+
+%%%%%%%%% Twitter
+\section{Resultados - Pt2}
+    % frame Section {{{2 
+    \begin{frame}
+
+        \begin{figure}
+            \begin{tikzpicture}
+                \draw[fill=red!60!black] 
+                    (-4,0) rectangle (-0.1,1.7)
+                    node[midway, right,scale=3, color=white] {$3.$};
+
+                \draw[fill=gray!60, opacity=0.8]
+                    (0,0) rectangle (8,1.7)
+                    node[midway, scale=3, color=white]
+                    {Resultados - Pt2};
+            \end{tikzpicture}
+        \end{figure}
+    \end{frame}
+    %END frame 2}}}
+
+	% frame 1 {{{2
+	\begin{frame}
+		\frametitle{O que é um Tweet}
+		\begin{enumerate}
+			\item Um tweet pode ser abstraído como o elemento da Figura abaixo
+			\begin{figure}[h]
+				\centering
+				\includegraphics{pics/pic0.pdf}
+			\end{figure}
+			\item \textbf{Tipo da mensagem} pode ser igual a "mensagem", "RT", "resposta", ou "Quote"
+		\end{enumerate}
+		\end{frame}
+	% END frame 1 2}}}
+
+	% frame 2 {{{2
+	\begin{frame}
+		\frametitle{Intereção entre Tweets}
+		\begin{enumerate}
+			\item Tweets podem interagir entre si, por exemplo:
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale=0.45]{pics/pic1.pdf}
+			\end{figure}
+		\end{enumerate}
+		\end{frame}
+	% END frame 2 2}}}
+
+	% frame 3 {{{2
+	\begin{frame}
+		\frametitle{Intereção entre Tweets}
+		\begin{enumerate}
+			\item A intereçaão entre os tweets pode continuar indefinitivamente.
+			\begin{figure}[h]
+				\centering
+				\includegraphics[scale=0.3]{pics/pic2.pdf}
+			\end{figure}
+		\end{enumerate}
+		\end{frame}
+	% END frame 3 2}}}
+
+	% frame 4 {{{2
+	\begin{frame}
+		\frametitle{Grafo formado pelos Tweets}
+		\begin{enumerate}
+			\item Os tweets assim nos fornecem uma sequência de árvores, 
+				que será o objeto de nossa análise;
+			\item \textbf{Obs}: Os IDs dos tweets são únicos;
+			\item \textbf{Obs}: A intereção entre os autores dos tweets ainda
+				não está sendo levada em conta
+			\item \textbf{Obs} Por interação entre os autores me refiro a situação
+				de, por exemplo, uma pessoa X seguir ou não uma pessoa Y.
+				Sendo que X e Y publicaram um tweet
+		\end{enumerate}
+		\end{frame}
+	% END frame 4 2}}}
+
+	% frame 5 {{{2
+	\begin{frame}
+		\frametitle{Dados coletados até agora}
+		\begin{enumerate}
+			\item Os tweets coletados são referentes a mensagems publicadas no
+				dia 25/03/2021 ocorrendo no período das 18h até as 21h (UTC -3)
+				e contendo alguma das seguintes palavras chaves (em pt):
+				\begin{enumerate}
+					\item vacina \textit{ou}
+					\item cloroquina  \textit{ou}
+					\item covid \textit{ou} corona \textit{ou} covid-19 \textit{ou}
+					\item tratamento antecipado \textit{ou} tratamento precoce \textit{ou}
+					\item azitromicina \textit{ou}
+					\item lockdown
+				\end{enumerate}
+			\item \textbf{Obs} Vale notar que toda mensagem publicada no horário 
+				descrito pode ter um "parent tweet", ou seja,
+				a mensagem coletada é uma resposta ou um RT ou uma Quote
+				de outro tweet. Nestes casos, o tweet pai será incluso 
+				em minha análise, mesmo o mesmo tendo sido publicado fora 
+				do horário ou não contendo alguma das palavras chaves acima.
+		\end{enumerate}
+		\end{frame}
+	% END frame 5 2}}}
+
+	% frame 6 {{{2
+	\begin{frame}
+		\frametitle{Visualização do grafo obtido}
+			\begin{figure}[h]
+				\centering
+                \includegraphics[scale=0.6]{pics/treeGraph_v01_coloured_scaled.png}
+			\end{figure}
+		\end{frame}
+	% END frame 6 2}}}
+
+	% frame 7 {{{2
+	\begin{frame}
+		\frametitle{Algumas mensagens coletadas}
+		\begin{itemize}
+			\item A seguir listo as mensagens que possuim mais de 1000 filhos,
+				i.e., mais de 1000 pessoas interagem com estas mensagens.
+				No total são apenas 7 mensagens.
+		\end{itemize}
+		\end{frame}
+	% END frame 7 2}}}
+
+	% frame 8 {{{2
+	\begin{frame}
+		\frametitle{Algumas mensagens coletadas (mensagens casuais)}
+		\begin{enumerate}
+			\item
+                @leelecarvalho\_ "eu estou fazendo minha parte nesse
+                lockdown, mas não milito em cima de qm ta saindo, pq não
+                sair agora, não anula o fato de eu ter saído antes, tem
+                uns aqui nesse tt mt hipocrita, furou a quarentena toda
+                e agr no lockdown quer pagar de alecrim dourado kkkkk"
+
+			\item @Jouberth19 "lockdown e feriado de 10 dias pra vocês, pq eu vou continuar
+				trabalhando normalmente"
+
+			\item @daycrvg10 "o dia q anunciarem q n há mais covid vai ser O DIA"
+
+			\item
+                @isa\_abrantes10 "Bota a Gabi da FGV nesse governo pra
+                ver se ela não consegue vacina pra todo mundo em uma semana"
+
+		\end{enumerate}
+		\end{frame}
+	% END frame 8 2}}}
+
+	% frame 9 {{{2
+	\begin{frame}
+		\frametitle{Algumas mensagens coletadas (fakenews)}
+		\begin{enumerate}
+
+			\item
+                @bicmuller "vcs tem noção que a Austrália, ZEROU as
+                restrições pra covid ?? Sem mascara, bar aberto, estadio
+                de futebol com 100\% de capacidade CABOU COVID NA
+                AUSTRALIA"
+
+			\item
+                @IsabelasemZ "URGENTE - EMPRESÁRIOS ANUNICAM DOAÇÃO DE
+                10 MILHÕES DE VACINAS. Após reunião com Paulo Guedes,
+                os empresários Luciano Hang e Carlos Wizard anunciaram
+                a doação para o SUS de 10 milhões de doses da vacina
+                contra a Covid.SERÁ QUE A IMPRENSA VAI DIZER QUE ELES
+                SÃO BOLSONARISTAS?"
+
+			\item
+                @BrazilFight "URGENTE: Após reunião com Min. Paulo
+                Guedes, os empresários Luciano Hang e Carlos
+                Wizard anunciaram a doação para o SUS de 10 milhões
+                de doses da vacina contra a Covid. \#VacinaBrasil
+                https://t.co/pAllXiO6Q6"
+		\end{enumerate}
+		\end{frame}
+	% END frame 9 2}}}
+
+	% frame 11 {{{2
+	\begin{frame}
+		\frametitle{Resultados Preliminares}
+		\begin{itemize}
+			\item Do grafo obtido iremos analisar seu diagrama
+				de persistência de dimensão 0 e 1
+
+			\item Aqui a persistência será obtida pela técnica
+				envolvendo a homologia de caminhos persistentes (path persistent
+				homology)
+			\item Vale notar que para o cálculo desta homologia precisamos
+				ter estabelecido uma matriz de peso para as arestas
+			\item Esta matriz de peso eu adotarei como o intervalo de tempo levado
+				para uma mensagem filha aparecer, em relação ao "parent tweet"
+			\item Com isto obtemos
+		\end{itemize}
+		\end{frame}
+	% END frame 11 2}}}
+
 %	% frame 12 {{{2
 %	\begin{frame}
 %		\frametitle{Resultados Preliminares - dimensão 0}
